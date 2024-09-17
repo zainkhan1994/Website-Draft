@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Test Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Blood Test Visualization</h1>
+        </header>
+
+        <div class="content">
+            <div class="toggle-buttons">
+                <button onclick="showSection('cbc')">CBC</button>
+                <button onclick="showSection('lipid')">Lipid Panel</button>
+                <button onclick="showSection('metabolic')">Metabolic Panel</button>
+            </div>
+
+            <div id="cbc" class="section active">
+                <h2>CBC Results</h2>
+                <canvas id="cbcChart"></canvas>
+                <!-- Add chart.js code for visualization -->
+            </div>
+
+            <div id="lipid" class="section">
+                <h2>Lipid Panel Results</h2>
+                <canvas id="lipidChart"></canvas>
+            </div>
+
+            <div id="metabolic" class="section">
+                <h2>Metabolic Panel Results</h2>
+                <canvas id="metabolicChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
