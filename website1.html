@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NASA Space Apps Challenge 2024</title>
+  <!-- Include Ionicons for icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  <style>
+    /* Color Scheme */
+    :root {
+      --primary: #1E3A8A;
+      --secondary: #3B82F6;
+      --accent: #F59E0B;
+      --background: #EFF6FF;
+      --text: #1F2937;
+      --white: #FFFFFF;
+    }
+
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    header ion-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Layout */
+    .container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    aside {
+      background-color: var(--secondary);
+      color: var(--white);
+      width: 250px;
+      min-width: 250px;
+      padding: 16px;
+      overflow-y: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    aside h2 {
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+    }
+
+    aside ul {
+      list-style: none;
+    }
+
+    aside li {
+      margin-bottom: 12px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    aside li:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    aside li.active {
+      background-color: var(--accent);
+      color: var(--primary);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    main h2 {
+      margin-bottom: 16px;
+      font-size: 1.75rem;
+      color: var(--primary);
+    }
+
+    /* Responsive Styles */
+    .sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      background-color: var(--secondary);
+      color: var(--white);
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        z-index: 999;
+      }
+
+      aside.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-toggle {
+        display: block;
+      }
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>NASA Space Apps Challenge 2024</h1>
+    <ion-icon name="camera-outline"></ion-icon>
+  </header>
+
+  <!-- Sidebar Toggle Button for Mobile -->
+  <button class="sidebar-toggle" id="sidebarToggle">
+    <ion-icon name="menu-outline"></ion-icon>
+  </button>
+
+  <!-- Layout Container -->
+  <div class="container">
+    
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <h2>Documents</h2>
+      <ul id="documentList">
+        <!-- Document items will be injected here -->
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="documentViewer">
+      <!-- Active document content will be displayed here -->
+      <h2>Loading...</h2>
+      <p>Please select a document from the sidebar.</p>
+    </main>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const documents = [
+      {
+        title: "2024 NASA Space Apps Participant Recruitment Toolkit",
+        content: `
+          <h2>2024 NASA Space Apps Participant Recruitment Toolkit</h2>
+          <p>On October 5-6, 2024, NASA and a global group of 15 Space Agency Partners are inviting makers, builders, artists, coders, entrepreneurs, designers, and storytellers to participate in the 2024 NASA International Space Apps Challenge. Over the course of two days, NASA Space Apps teams will develop projects to address challenges using NASA’s free and open data and space-based data from Space Agency Partners.</p>
+          <p>In collaboration with NASA Heliophysics and the celebration of the Helio Big Year, the 2024 NASA Space Apps Challenge theme is “The Sun Touches Everything.”</p>
+          <p>Key Dates:</p>
+          <ul>
+            <li>July 18: Registration Opens</li>
+            <li>Aug. 22: Challenge Summaries Released</li>
+            <li>Sept. 12: Challenge Statements Released</li>
+            <li>Oct. 4: Space Apps Kickoff Video</li>
+            <li>Oct. 5-6: Hackathon Event</li>
+            <li>Jan. 2025: Global Winners Announcement</li>
+          </ul>
+          <p>Links:</p>
+          <ul>
+            <li><a href="https://www.spaceappschallenge.org/" target="_blank">NASA Space Apps Website</a></li>
+            <li><a href="https://www.spaceappschallenge.org/resources/" target="_blank">Resources</a></li>
+            <li><a href="https://www.spaceappschallenge.org/blog/the-sun-touches-everything-with-nasa-heliophysics/" target="_blank">The Sun Touches Everything Blog</a></li>
+          </ul>
+        `
+      },
+      {
+        title: "2024 Project Submission Guide",
+        content: `
+          <h2>2024 Project Submission Guide</h2>
+          <p>Project submission opens on Saturday, October 5 at 9:00 a.m. (in your Team Owner's Local Event time zone). It closes on Sunday, October 6 at 11:59 p.m.</p>
+          <p>Steps to submit your project:</p>
+          <ol>
+            <li>Navigate to Your team's page.</li>
+            <li>Select the “Project” tab.</li>
+            <li>Click the blue “Edit Details” button to edit your Project Submission page.</li>
+            <li>Save progress frequently and click the "Publish" button when you're ready.</li>
+          </ol>
+          <p>Requirements:</p>
+          <ul>
+            <li>Demo: A video (30 seconds) or slide deck (7 slides)</li>
+            <li>Final Project: A link to a publicly accessible project demo</li>
+            <li>Provide NASA data and partner resources used</li>
+          </ul>
+          <p>Judging Criteria: Impact, Creativity, Validity, Relevance, and Presentation</p>
+        `
+      },
+      {
+        title: "NASA Space Apps Challenge Overview",
+        content: `
+          <h2>NASA Space Apps Challenge Overview</h2>
+          <p>The NASA International Space Apps Challenge is a hackathon for coders, scientists, designers, and innovators to create solutions using NASA’s open data. Participants form global teams to address challenges on Earth and in space.</p>
+          <p>Space Apps encourages collaboration across borders and welcomes people of all skill levels. It's an opportunity to learn, challenge yourself, and explore new approaches to problems.</p>
+          <p>Important Dates:</p>
+          <ul>
+            <li>October 6, 2023: Welcome video release</li>
+            <li>October 6-8, 2023: Hackathon event</li>
+          </ul>
+        `
+      },
+      {
+        title: "Challenges for NASA Space Apps 2024",
+        content: `
+          <h2>Challenges for NASA Space Apps 2024</h2>
+          <p>The challenge summaries for 2024 have been released. Participants can access and review the challenges at the <a href="https://www.spaceappschallenge.org/nasa-space-apps-2024/challenges/" target="_blank">NASA Space Apps 2024 Challenges Page</a>.</p>
+        `
+      },
+      {
+        title: "Flight Night - Volunteer Assignments 2024",
+        content: `
+          <h2>Flight Night - Volunteer Assignments 2024</h2>
+          <p>The following are the team-based volunteer assignments for Flight Night 2024:</p>
+          <ul>
+            <li>Team A: Includes roles like registration, accessibility help, ushering, live auction support, and sweeping tables.</li>
+            <li>Team B: Includes champagne sales, raffle operations, VIP bouncer duties, and auction support.</li>
+            <li>Team C: Data management and raffle tasks during the event.</li>
+          </ul>
+          <p>Note: Teams will meet in the volunteer room for coordination and tasks are assigned based on time slots throughout the event.</p>
+        `
+      },
+      {
+        title: "NASA Space Technology Art Challenge - Imagine Tomorrow",
+        content: `
+          <h2>NASA Space Technology Art Challenge - Imagine Tomorrow</h2>
+          <p>The NASA Innovative Advanced Concepts (NIAC) program is looking for posters that depict future space technology. Artists and graphic designers are invited to create realistic depictions of space technologies that could be used in future NASA missions.</p>
+          <p>Prizes: $3,000 USD in total, with individual prizes of $300 USD.</p>
+          <p>Key Dates:</p>
+          <ul>
+            <li>Launch: March 5, 2024</li>
+            <li>Submission Deadline: April 15, 2024</li>
+            <li>Winners Announced: April 30, 2024</li>
+          </ul>
+          <p>Submission Requirements:</p>
+          <ul>
+            <li>Size: 2’ x 3’ poster, portrait orientation</li>
+            <li>Resolution: 300 dpi or higher</li>
+            <li>Format: PDF</li>
+            <li>Alt text describing the image must be included</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Judging Process - Global Planning Call",
+        content: `
+          <h2>The Judging Process - Global Planning Call</h2>
+          <p>Presented by the Global Organizing Team, the call outlines the judging process for the NASA Space Apps Challenge 2023:</p>
+          <p>Judging Phases:</p>
+          <ul>
+            <li>Local Judging: Oct 9-15, 2023, where local judges will review and select up to 3 Global Nominees from each event.</li>
+            <li>Executive Judging: Mid-November to December, space agency experts will review projects and select Global Winners.</li>
+            <li>Global Winners Announcement: January 2024.</li>
+          </ul>
+          <p>Categories for Global Awards include Best Use of Science, Galactic Impact, and Best Storytelling Award.</p>
+        `
+      }
+    ];
+
+    const colors = {
+      primary: '#1E3A8A',
+      secondary: '#3B82F6',
+      accent: '#F59E0B',
+      background: '#EFF6FF',
+      text: '#1F2937',
+    };
+
+    // Initialize Sidebar and Document Viewer
+    document.addEventListener('DOMContentLoaded', () => {
+      const documentList = document.getElementById('documentList');
+      const documentViewer = document.getElementById('documentViewer');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('sidebar');
+
+      // Function to render documents in the sidebar
+      documents.forEach((doc, index) => {
+        const li = document.createElement('li');
+        li.textContent = doc.title;
+        li.dataset.index = index;
+        if(index === 0) li.classList.add('active');
+        li.addEventListener('click', () => {
+          // Remove active class from all
+          document.querySelectorAll('aside li').forEach(item => item.classList.remove('active'));
+          // Add active class to the clicked item
+          li.classList.add('active');
+          // Display the selected document
+          documentViewer.innerHTML = doc.content;
+          // Close sidebar on mobile after selection
+          if(window.innerWidth <= 768){
+            sidebar.classList.remove('open');
+          }
+        });
+        documentList.appendChild(li);
+      });
+
+      // Display the first document by default
+      documentViewer.innerHTML = documents[0].content;
+
+      // Sidebar toggle functionality for mobile
+      sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      // Close sidebar when clicking outside (optional)
+      document.addEventListener('click', (e) => {
+        if(window.innerWidth > 768) return;
+        if(!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)){
+          sidebar.classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
