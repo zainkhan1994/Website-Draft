@@ -13,6 +13,10 @@
             <h1>Blood Test Visualization</h1>
         </header>
 
+        <!-- File input for data -->
+        <input type="file" id="fileInput" accept=".csv,.json">
+        <p>Upload your CSV or JSON file</p>
+
         <div class="toggle-buttons">
             <button onclick="showSection('cbc')">CBC</button>
             <button onclick="showSection('lipid')">Lipid Panel</button>
@@ -38,8 +42,8 @@
     <!-- Add Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- JavaScript to handle section toggling -->
     <script>
+        // Function to handle section toggling
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
@@ -47,82 +51,62 @@
             });
             document.getElementById(sectionId).classList.add('active');
         }
-    </script>
 
-    <!-- Add Chart.js code for CBC Chart -->
-    <script>
-        const ctxCBC = document.getElementById('cbcChart').getContext('2d');
-        const cbcChart = new Chart(ctxCBC, {
-            type: 'bar',
-            data: {
-                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
-                datasets: [{
-                    label: 'CBC Results',
-                    data: [12, 19, 3, 5, 2],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
-
-    <!-- Add Chart.js code for Lipid Panel Chart -->
-    <script>
-        const ctxLipid = document.getElementById('lipidChart').getContext('2d');
-        const lipidChart = new Chart(ctxLipid, {
+        // Load Chart.js charts
+        const cbcChart = new Chart(document.getElementById('cbcChart').getContext('2d'), {
             type: 'line',
-            data: {
-                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
-                datasets: [{
-                    label: 'Lipid Panel Results',
-                    data: [220, 200, 230, 210, 240],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
+            data: { labels: [], datasets: [{ label: 'CBC Results', data: [], borderColor: 'rgba(54, 162, 235, 1)', fill: false }] },
+            options: { scales: { y: { beginAtZero: true } } }
         });
-    </script>
 
-    <!-- Add Chart.js code for Metabolic Panel Chart -->
-    <script>
-        const ctxMetabolic = document.getElementById('metabolicChart').getContext('2d');
-        const metabolicChart = new Chart(ctxMetabolic, {
+        const lipidChart = new Chart(document.getElementById('lipidChart').getContext('2d'), {
             type: 'line',
-            data: {
-                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
-                datasets: [{
-                    label: 'Metabolic Panel Results',
-                    data: [15, 30, 25, 35, 45],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
+            data: { labels: [], datasets: [{ label: 'Lipid Panel Results', data: [], borderColor: 'rgba(255, 99, 132, 1)', fill: false }] },
+            options: { scales: { y: { beginAtZero: true } } }
+        });
+
+        const metabolicChart = new Chart(document.getElementById('metabolicChart').getContext('2d'), {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: 'Metabolic Panel Results', data: [], borderColor: 'rgba(75, 192, 192, 1)', fill: false }] },
+            options: { scales: { y: { beginAtZero: true } } }
+        });
+
+        // Function to update charts dynamically with uploaded data
+        function updateChartData(data) {
+            // Assuming data format: { labels: [...], cbcData: [...], lipidData: [...], metabolicData: [...] }
+            const parsedData = JSON.parse(data);
+
+            // Update CBC Chart
+            cbcChart.data.labels = parsedData.labels;
+            cbcChart.data.datasets[0].data = parsedData.cbcData;
+            cbcChart.update();
+
+            // Update Lipid Chart
+            lipidChart.data.labels = parsedData.labels;
+            lipidChart.data.datasets[0].data = parsedData.lipidData;
+            lipidChart.update();
+
+            // Update Metabolic Chart
+            metabolicChart.data.labels = parsedData.labels;
+            metabolicChart.data.datasets[0].data = parsedData.metabolicData;
+            metabolicChart.update();
+        }
+
+        // Handle file input (CSV or JSON)
+        document.getElementById('fileInput').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                // Assuming JSON format for simplicity
+                const result = e.target.result;
+
+                // Update charts with file data
+                updateChartData(result);
+            };
+
+            reader.readAsText(file);
         });
     </script>
-
 </body>
 </html>
