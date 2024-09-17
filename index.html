@@ -7,37 +7,122 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="container">
         <header>
             <h1>Blood Test Visualization</h1>
         </header>
 
-        <div class="content">
-            <div class="toggle-buttons">
-                <button onclick="showSection('cbc')">CBC</button>
-                <button onclick="showSection('lipid')">Lipid Panel</button>
-                <button onclick="showSection('metabolic')">Metabolic Panel</button>
-            </div>
+        <div class="toggle-buttons">
+            <button onclick="showSection('cbc')">CBC</button>
+            <button onclick="showSection('lipid')">Lipid Panel</button>
+            <button onclick="showSection('metabolic')">Metabolic Panel</button>
+        </div>
 
-            <div id="cbc" class="section active">
-                <h2>CBC Results</h2>
-                <canvas id="cbcChart"></canvas>
-                <!-- Add chart.js code for visualization -->
-            </div>
+        <div id="cbc" class="section active">
+            <h2>CBC Results</h2>
+            <canvas id="cbcChart"></canvas>
+        </div>
 
-            <div id="lipid" class="section">
-                <h2>Lipid Panel Results</h2>
-                <canvas id="lipidChart"></canvas>
-            </div>
+        <div id="lipid" class="section">
+            <h2>Lipid Panel Results</h2>
+            <canvas id="lipidChart"></canvas>
+        </div>
 
-            <div id="metabolic" class="section">
-                <h2>Metabolic Panel Results</h2>
-                <canvas id="metabolicChart"></canvas>
-            </div>
+        <div id="metabolic" class="section">
+            <h2>Metabolic Panel Results</h2>
+            <canvas id="metabolicChart"></canvas>
         </div>
     </div>
 
+    <!-- Add Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="scripts.js"></script>
+
+    <!-- JavaScript to handle section toggling -->
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+
+    <!-- Add Chart.js code for CBC Chart -->
+    <script>
+        const ctxCBC = document.getElementById('cbcChart').getContext('2d');
+        const cbcChart = new Chart(ctxCBC, {
+            type: 'bar',
+            data: {
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                datasets: [{
+                    label: 'CBC Results',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Add Chart.js code for Lipid Panel Chart -->
+    <script>
+        const ctxLipid = document.getElementById('lipidChart').getContext('2d');
+        const lipidChart = new Chart(ctxLipid, {
+            type: 'line',
+            data: {
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                datasets: [{
+                    label: 'Lipid Panel Results',
+                    data: [220, 200, 230, 210, 240],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Add Chart.js code for Metabolic Panel Chart -->
+    <script>
+        const ctxMetabolic = document.getElementById('metabolicChart').getContext('2d');
+        const metabolicChart = new Chart(ctxMetabolic, {
+            type: 'line',
+            data: {
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                datasets: [{
+                    label: 'Metabolic Panel Results',
+                    data: [15, 30, 25, 35, 45],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
