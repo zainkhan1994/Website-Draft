@@ -1,0 +1,124 @@
+vCard - Personal Portfolio
+# Sidebar
+alt = Zain Khan
+Zain Khan
+AI & Workflow Efficiency Specialist
+Show Contacts
+
+Email: zain.khan@example.com
+Phone: +1 (XXX) XXX-XXXX
+Birthday: January 15, 1992
+Location: Houston, Texas, USA
+# Navbar
+About
+Resume
+Portfolio
+Art
+Contact
+# About
+About Me
+
+Hello, I'm Zain! I'm passionate about using technology to make sense of complex systems and improve productivity. I focus on leveraging machine learning and AI to create more efficient workflows, minimizing the repetitive burdens of day-to-day life. Inspired by concepts like "Cortana" from Halo, I envision creating my own "second brain" that helps me—and others—stay organized, especially on the tough days when focus doesn't come naturally.
+
+My work is about helping individuals and organizations make better data-driven decisions, automate their workflows, and extract insights to act intelligently and confidently.
+
+# Services
+What I'm Doing
+
+alt = AI Automation icon
+AI Automation Solutions
+Crafting intelligent automation tools that simplify personal and work-related processes, reducing the decision-making burden when focus is a challenge.
+
+alt = Workflow Design icon
+Workflow & RPA Development
+Building workflows and implementing Robotic Process Automation (RPA) to handle repetitive, high-effort tasks so you can focus on what matters.
+
+alt = Centralized Data Integration icon
+Data Integration & Visualization
+Bringing all data into a single, unified view for analysis and actionable insights through platforms like Airtable and Rewind.
+
+alt = Assistive Technologies icon
+Assistive Technology Innovation
+Designing AI-powered assistive tools aimed at improving quality of life, enhancing day-to-day productivity, and centralizing data for better management.
+
+# Testimonials
+alt = Glen Parker
+Glen Parker
+"Zain's approach to integrating machine learning into our workflows was nothing short of revolutionary. It helped us uncover efficiencies that improved our day-to-day operations dramatically."
+
+alt = Haliegh Thomas
+Haliegh Thomas
+"Zain's deep understanding of AI and its practical application to everyday problems was incredibly helpful for our team. He delivered exactly what we needed to streamline our operations."
+
+alt = Theresa Bloom
+Theresa Bloom
+"Zain's genuine passion for efficiency through automation has been inspiring. His work helped us streamline our property management system and improved overall team productivity."
+
+# Clients
+Partnered with:
+NASA Space Apps Challenge (Houston Chapter Lead)
+NYC Health + Hospitals
+R-Cubed Consulting
+Various Non-Profit Leaders focusing on assistive technology projects.
+# Resume
+Education
+
+University of Houston
+2010 — 2014
+Mechanical Engineering with a focus on CAD design and automation processes.
+
+Continual Learning
+Engaged in advanced courses in AI, data science, and process efficiency including:
+
+Coursera: "AI For Everyone"
+Online ML-focused workshops.
+Experience
+
+NASA Space Apps Challenge Lead
+October 2024 — Present
+Spearheading the Houston chapter's initiatives to foster creativity and problem-solving among tech enthusiasts.
+
+Machine Learning & Automation Engineer at R-Cubed Consulting
+March 2019 — Present
+Responsible for leading AI, data integration, and automation projects aimed at optimizing business processes for clients.
+
+Research and Development Projects
+Self-Initiated
+Creating an "AI Assistant" that can help individuals make sense of fragmented data by centralizing it, recognizing patterns, and suggesting actions to improve productivity.
+
+Skills
+
+Machine Learning & AI Tools
+Python, TensorFlow, PyTorch, OpenAI API, Mediapipe
+
+Automation & Workflow Optimization
+Rewind, Airtable, make.com, MacBook Automator, Apple Shortcuts
+
+Data Visualization & Integration
+Dashboards, Custom Analytics, Web Scraping, Google Ads Optimization
+
+# Portfolio
+Projects
+
+alt = Cortana-Inspired Assistant
+Cortana-Inspired AI Assistant
+An intelligent virtual assistant designed to help manage, prioritize, and automate day-to-day tasks. Created with Python and utilizing APIs like OpenAI for natural language capabilities.
+
+alt = MyChart Automation Tool
+MyChart Automation
+Automation system for extracting data from MyChart, focusing on analyzing personal health metrics for deeper insights and health optimization.
+
+alt = NYC Health Systems Automation
+NYC Health + Hospitals RPA Project
+Created a scalable Robotic Process Automation (RPA) tool that simplified project accounting and financial record-keeping, improving efficiency by 40%.
+
+alt = Airtable Data Integration Project
+Airtable Integration for R-Cubed
+Built a comprehensive system in Airtable to serve as a "second brain," storing and visualizing project data, client interactions, and task lists for easy access and retrieval.
+
+# Contact
+Contact Form
+
+Full name
+Email address
+Your Message
