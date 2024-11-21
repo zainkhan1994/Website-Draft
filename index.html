@@ -1,112 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Test Visualization</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maylynn</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <div class="container">
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/pfp.jpeg" alt="May Lynn Espinola" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="May Lynn Espinola">May Lynn Espinola</h1>
+          <p class="title">AI Enthusiast & Developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:maylynnespinola@gmail.com" class="contact-link">maylynnespinola@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Discord</p>
+              <div class="contact-link">@maye01</div>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="2008-10-01">Jan 10, 2008</time>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Texas, USA</address>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.youtube.com/@MayStudyVerse" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.instagram.com/maylynn.e/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/goldPig888" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+    <!--
+      - #MAIN CONTENT
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Art</button>
+          </li>
+        </ul>
+      </nav>
+
+
+      <!--
+        - #ABOUT SECTION
+      -->
+
+      <article class="about active" data-page="about">
+
         <header>
-            <h1>Blood Test Visualization</h1>
+          <h2 class="h2 article-title">About Me</h2>
         </header>
 
-        <!-- File input for data -->
-        <input type="file" id="fileInput" accept=".csv,.json">
-        <p>Upload your CSV or JSON file</p>
+        <section class="about-text">
+          <p>
+            Hi! I'm May, a junior at Tompkins High School. I'm passionate about assistive technologies, multimodal AI, and exploring their applications in robotics and computer vision. Currently, I'm delving into how AI can advance assistive tech, preparing to present my findings at science fairs.
+          </p>
+          <p>
+            I actively participate in hackathons and app challenges to develop impactful applications. This year, I'm leading efforts to increase participation in the NASA Space Apps Challenge in Houston.
+          </p>
+          <p>
+            I'm also collaborating with my friends on projects like the Congressional App Challenge and developing a climate livability index app. In addition, I'm working with nonprofit leaders to create an AI-powered educational app that personalizes math learning for high school students.
+          </p>
+        </section>
 
-        <div class="toggle-buttons">
-            <button onclick="showSection('cbc')">CBC</button>
-            <button onclick="showSection('lipid')">Lipid Panel</button>
-            <button onclick="showSection('metabolic')">Metabolic Panel</button>
-        </div>
+      </article>
 
-        <div id="cbc" class="section active">
-            <h2>CBC Results</h2>
-            <canvas id="cbcChart"></canvas>
-        </div>
 
-        <div id="lipid" class="section">
-            <h2>Lipid Panel Results</h2>
-            <canvas id="lipidChart"></canvas>
-        </div>
+      <!--
+        - #RESUME SECTION
+      -->
 
-        <div id="metabolic" class="section">
-            <h2>Metabolic Panel Results</h2>
-            <canvas id="metabolicChart"></canvas>
-        </div>
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Languages</h4>
+              <p class="timeline-text">Fluent in English and Mandarin (Scored 100/100 for 2 years for high school credits).</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Relevant Courses</h4>
+              <p class="timeline-text">
+                Taken - AP Computer Science Principles, AP Calculus BC, AP Computer Science A, AP World History, AP Statistics.<br>
+                Current - AP Physics 1, AP US History, AP Chinese, AP Studio Art.<br>
+                Related - AWS Cloud Computing, Data Structures, Unity Game Development, Multivariable Calculus.
+              </p>
+            </li>
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="trophy-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Awards</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">NASA Hackathon Space Apps Global Nominee</h4>
+              <span>Oct 2024</span>
+              <p class="timeline-text">1st place in Houston, TX. Project advanced to global judging (1 of 940 teams).</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">USACO Silver</h4>
+              <span>Feb 2024</span>
+              <p class="timeline-text">USA Computing Olympiad Silver Division.</p>
+            </li>
+          </ol>
+        </section>
+
+      </article>
+
     </div>
 
-    <!-- Add Chart.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </main>
 
-    <script>
-        // Function to handle section toggling
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
 
-        // Load Chart.js charts
-        const cbcChart = new Chart(document.getElementById('cbcChart').getContext('2d'), {
-            type: 'line',
-            data: { labels: [], datasets: [{ label: 'CBC Results', data: [], borderColor: 'rgba(54, 162, 235, 1)', fill: false }] },
-            options: { scales: { y: { beginAtZero: true } } }
-        });
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-        const lipidChart = new Chart(document.getElementById('lipidChart').getContext('2d'), {
-            type: 'line',
-            data: { labels: [], datasets: [{ label: 'Lipid Panel Results', data: [], borderColor: 'rgba(255, 99, 132, 1)', fill: false }] },
-            options: { scales: { y: { beginAtZero: true } } }
-        });
-
-        const metabolicChart = new Chart(document.getElementById('metabolicChart').getContext('2d'), {
-            type: 'line',
-            data: { labels: [], datasets: [{ label: 'Metabolic Panel Results', data: [], borderColor: 'rgba(75, 192, 192, 1)', fill: false }] },
-            options: { scales: { y: { beginAtZero: true } } }
-        });
-
-        // Function to update charts dynamically with uploaded data
-        function updateChartData(data) {
-            // Assuming data format: { labels: [...], cbcData: [...], lipidData: [...], metabolicData: [...] }
-            const parsedData = JSON.parse(data);
-
-            // Update CBC Chart
-            cbcChart.data.labels = parsedData.labels;
-            cbcChart.data.datasets[0].data = parsedData.cbcData;
-            cbcChart.update();
-
-            // Update Lipid Chart
-            lipidChart.data.labels = parsedData.labels;
-            lipidChart.data.datasets[0].data = parsedData.lipidData;
-            lipidChart.update();
-
-            // Update Metabolic Chart
-            metabolicChart.data.labels = parsedData.labels;
-            metabolicChart.data.datasets[0].data = parsedData.metabolicData;
-            metabolicChart.update();
-        }
-
-        // Handle file input (CSV or JSON)
-        document.getElementById('fileInput').addEventListener('change', function (event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                // Assuming JSON format for simplicity
-                const result = e.target.result;
-
-                // Update charts with file data
-                updateChartData(result);
-            };
-
-            reader.readAsText(file);
-        });
-    </script>
 </body>
+
 </html>
